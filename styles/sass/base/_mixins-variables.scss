@@ -1,0 +1,45 @@
+/* Variables */
+
+/* Color palette */
+
+/* Mixins */
+
+@mixin fontSize($size-value) {
+  font-size: ($size-value / 10) * 1rem;
+}
+
+@mixin tablet-landscape-lg {
+  @media only screen and(max-width: $screen-xxxl) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media only screen and(max-width: $screen-xxl) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape-sm {
+  @media only screen and (max-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media only screen and(max-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait-sm {
+  @media only screen and(max-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media only screen and(max-width: $screen-xs) {
+    @content;
+  }
+}

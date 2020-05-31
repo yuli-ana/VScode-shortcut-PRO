@@ -1,0 +1,70 @@
+.header {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  h1,
+  .userInput {
+    @include fontSize(30);
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  .header,
+  .userInput {
+    position: relative;
+  }
+
+  .headerCounter,
+  .userInput {
+    text-align: center;
+  }
+
+  .userInput,
+  .userCommand,
+  .col.col40 {
+    width: 100%;
+  }
+
+  .headerCounter {
+    position: absolute;
+    top: 50px;
+    right: 7.5%;
+    width: 10%;
+    border: 2px solid $accent-yellow;
+
+    .counter {
+      @include fontSize(20);
+      padding: 10px;
+    }
+  }
+
+  .headerQuiz {
+    // border: 1px solid $accent-yellow;
+    padding: 50px 0;
+  }
+
+  .userInput {
+    border: 1px solid $accent-yellow;
+    border-radius: 10px;
+    margin: 60px 0;
+    box-shadow: 0px 0px 10px $accent-yellow;
+
+    &::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include fontSize(30);
+    }
+
+    .userCommand {
+      padding: 30px;
+      display: inline-block;
+      font-weight: 600;
+    }
+  }
+}

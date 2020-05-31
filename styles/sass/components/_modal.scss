@@ -1,0 +1,66 @@
+.modal {
+  .modalLeft {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    background-color: $primary-dark;
+    transition: all 250ms ease-in-out;
+
+    .iconLeft {
+      position: absolute;
+      display: inline-block;
+      top: 40%;
+      right: -150px;
+    }
+  }
+
+  .modalRight {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    right: 0;
+    background-color: $accent-yellow;
+    transition: all 250ms ease-in-out;
+
+    .iconRight {
+      position: absolute;
+      display: inline-block;
+      top: 40%;
+      left: -150px;
+      color: $primary-dark;
+    }
+  }
+
+  .modalIcon {
+    @include fontSize(300);
+  }
+}
+
+.left {
+  left: -50%;
+}
+
+.right {
+  right: -50%;
+}
+
+.intro {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  margin-top: 50px;
+
+  h2 {
+    @include fontSize(60);
+  }
+
+  p {
+    @include fontSize(30);
+  }
+}

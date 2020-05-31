@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -277,7 +278,10 @@ html {
 }
 
 body {
+  background-color: #193549;
   line-height: 1.4;
+  font-family: "Open Sans", sans-serif;
+  color: #dcab00;
 }
 
 ul {
@@ -298,4 +302,265 @@ img {
 a {
   display: inline-block;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -20px;
+}
+
+.row.rowCenter {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.row.rowEnd {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.row.rowColumn {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.col {
+  margin: 0 20px;
+}
+
+.col.col40 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+  max-width: calc(40% - 40px);
+}
+
+.col.col50 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  max-width: calc(50% - 40px);
+}
+
+.col.col60 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
+  max-width: calc(60% - 40px);
+}
+
+.col.col80 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 80%;
+          flex: 0 1 80%;
+  max-width: calc(80% - 40px);
+}
+
+.auto {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.modal .modalLeft {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: 0;
+  background-color: #193549;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+
+.modal .modalLeft .iconLeft {
+  position: absolute;
+  display: inline-block;
+  top: 40%;
+  right: -150px;
+}
+
+.modal .modalRight {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  right: 0;
+  background-color: #dcab00;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+
+.modal .modalRight .iconRight {
+  position: absolute;
+  display: inline-block;
+  top: 40%;
+  left: -150px;
+  color: #193549;
+}
+
+.modal .modalIcon {
+  font-size: 30rem;
+}
+
+.left {
+  left: -50%;
+}
+
+.right {
+  right: -50%;
+}
+
+.intro {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #000;
+  margin-top: 50px;
+}
+
+.intro h2 {
+  font-size: 6rem;
+}
+
+.intro p {
+  font-size: 3rem;
+}
+
+.header {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.header h1,
+.header .userInput {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.header .header,
+.header .userInput {
+  position: relative;
+}
+
+.header .headerCounter,
+.header .userInput {
+  text-align: center;
+}
+
+.header .userInput,
+.header .userCommand,
+.header .col.col40 {
+  width: 100%;
+}
+
+.header .headerCounter {
+  position: absolute;
+  top: 50px;
+  right: 7.5%;
+  width: 10%;
+  border: 2px solid #dcab00;
+}
+
+.header .headerCounter .counter {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.header .headerQuiz {
+  padding: 50px 0;
+}
+
+.header .userInput {
+  border: 1px solid #dcab00;
+  border-radius: 10px;
+  margin: 60px 0;
+  -webkit-box-shadow: 0px 0px 10px #dcab00;
+          box-shadow: 0px 0px 10px #dcab00;
+}
+
+.header .userInput::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+
+.header .userInput .userCommand {
+  padding: 30px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.button {
+  position: relative;
+  font-size: 2rem;
+  background-color: transparent;
+  -webkit-box-shadow: 0px 0px 5px #9cfcfc;
+          box-shadow: 0px 0px 5px #9cfcfc;
+  border: 1px solid #a5ff90;
+  border-radius: 150px;
+  color: #dcab00;
+  padding: 10px;
+  width: 100%;
+  text-transform: uppercase;
+  -webkit-transition: all 250ms ease-in;
+  transition: all 250ms ease-in;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: rgba(220, 171, 0, 0.7);
+  color: #193549;
+}
+
+.button::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 30px;
 }

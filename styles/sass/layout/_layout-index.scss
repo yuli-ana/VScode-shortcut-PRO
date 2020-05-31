@@ -25,9 +25,9 @@
 .col {
   margin: 0 20px;
 
-  &.col30 {
-    flex: 0 1 30%;
-    max-width: calc(30% - 40px);
+  &.col40 {
+    flex: 0 1 40%;
+    max-width: calc(40% - 40px);
   }
 
   &.col50 {

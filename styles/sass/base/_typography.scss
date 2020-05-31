@@ -3,5 +3,8 @@ html {
 }
 
 body {
+  background-color: $primary-dark;
   line-height: 1.4;
+  font-family: "Open Sans", sans-serif;
+  color: $accent-yellow;
 }

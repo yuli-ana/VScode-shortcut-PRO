@@ -1,16 +1,25 @@
 .button {
-  @include fontSize(14);
+  position: relative;
+  @include fontSize(20);
   background-color: transparent;
-  box-shadow: 0px 0px 10px $accent-blue;
+  box-shadow: 0px 0px 5px $accent-blue;
   border: 1px solid $accent-green;
-  border-radius: 10px;
+  border-radius: 150px;
   color: $accent-yellow;
-  padding: 20px 40px;
+  padding: 10px;
+  width: 100%;
   text-transform: uppercase;
   transition: all 250ms ease-in;
+  text-align: center;
 
   &:hover {
     background-color: rgba(220, 171, 0, 0.7);
     color: $primary-dark;
+  }
+
+  &::after {
+    content: "→";
+    display: inline-block;
+    margin-left: 30px;
   }
 }

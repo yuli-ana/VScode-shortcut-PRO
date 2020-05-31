@@ -1,0 +1,16 @@
+.button {
+  @include fontSize(14);
+  background-color: transparent;
+  box-shadow: 0px 0px 10px $accent-blue;
+  border: 1px solid $accent-green;
+  border-radius: 10px;
+  color: $accent-yellow;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  transition: all 250ms ease-in;
+
+  &:hover {
+    background-color: rgba(220, 171, 0, 0.7);
+    color: $primary-dark;
+  }
+}

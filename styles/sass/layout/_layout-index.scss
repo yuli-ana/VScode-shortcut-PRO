@@ -1,0 +1,51 @@
+.wrapper {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  margin: 0 -20px;
+
+  &.rowCenter {
+    justify-content: center;
+  }
+
+  &.rowEnd {
+    justify-content: end;
+  }
+
+  &.rowColumn {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.col {
+  margin: 0 20px;
+
+  &.col30 {
+    flex: 0 1 30%;
+    max-width: calc(30% - 40px);
+  }
+
+  &.col50 {
+    flex: 0 1 50%;
+    max-width: calc(50% - 40px);
+  }
+
+  &.col60 {
+    flex: 0 1 60%;
+    max-width: calc(60% - 40px);
+  }
+
+  &.col80 {
+    flex: 0 1 80%;
+    max-width: calc(80% - 40px);
+  }
+}
+
+.auto {
+  flex: 0 1 auto;
+}

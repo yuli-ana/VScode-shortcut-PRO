@@ -378,6 +378,13 @@ p {
   max-width: calc(60% - 40px);
 }
 
+.col.col75 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 75%;
+          flex: 0 1 75%;
+  max-width: calc(75% - 40px);
+}
+
 .col.col80 {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 80%;
@@ -451,7 +458,7 @@ p {
   margin-top: 50px;
 }
 
-.intro h2 {
+.intro h1 {
   font-size: 6rem;
 }
 
@@ -473,24 +480,24 @@ p {
   position: relative;
 }
 
-.header h1,
-.header .userInput {
+.header h2,
+.header .userAnswer {
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 2px;
 }
 
 .header .header,
-.header .userInput {
+.header .userAnswer {
   position: relative;
 }
 
 .header .headerCounter,
-.header .userInput {
+.header .userAnswer {
   text-align: center;
 }
 
-.header .userInput,
+.header .userAnswer,
 .header .userCommand,
 .header .col.col40 {
   width: 100%;
@@ -502,9 +509,10 @@ p {
   right: 7.5%;
   width: 10%;
   border: 2px solid #dcab00;
+  border-radius: 10px;
 }
 
-.header .headerCounter .counter {
+.header .headerCounter p {
   font-size: 2rem;
   padding: 10px;
 }
@@ -513,7 +521,8 @@ p {
   padding: 50px 0;
 }
 
-.header .userInput {
+.header .userAnswer {
+  padding: 30px;
   border: 1px solid #dcab00;
   border-radius: 10px;
   margin: 60px 0;
@@ -521,7 +530,7 @@ p {
           box-shadow: 0px 0px 10px #dcab00;
 }
 
-.header .userInput::after {
+.header .userAnswer::after {
   content: "+";
   position: absolute;
   top: 50%;
@@ -531,8 +540,7 @@ p {
   font-size: 3rem;
 }
 
-.header .userInput .userCommand {
-  padding: 30px;
+.header .userAnswer .userInput {
   display: inline-block;
   font-weight: 600;
 }

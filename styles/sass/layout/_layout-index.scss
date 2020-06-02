@@ -40,6 +40,11 @@
     max-width: calc(60% - 40px);
   }
 
+  &.col75 {
+    flex: 0 1 75%;
+    max-width: calc(75% - 40px);
+  }
+
   &.col80 {
     flex: 0 1 80%;
     max-width: calc(80% - 40px);

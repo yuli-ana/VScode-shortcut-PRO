@@ -398,7 +398,7 @@ p {
           flex: 0 1 auto;
 }
 
-.modal .modalLeft {
+.modalIntro .modalLeft {
   position: absolute;
   height: 100%;
   width: 50%;
@@ -409,14 +409,14 @@ p {
   transition: all 250ms ease-in-out;
 }
 
-.modal .modalLeft .iconLeft {
+.modalIntro .modalLeft .iconLeft {
   position: absolute;
   display: inline-block;
   top: 40%;
   right: -150px;
 }
 
-.modal .modalRight {
+.modalIntro .modalRight {
   position: absolute;
   height: 100%;
   width: 50%;
@@ -427,7 +427,7 @@ p {
   transition: all 250ms ease-in-out;
 }
 
-.modal .modalRight .iconRight {
+.modalIntro .modalRight .iconRight {
   position: absolute;
   display: inline-block;
   top: 40%;
@@ -435,7 +435,7 @@ p {
   color: #193549;
 }
 
-.modal .modalIcon {
+.modalIntro .modalIcon {
   font-size: 30rem;
 }
 

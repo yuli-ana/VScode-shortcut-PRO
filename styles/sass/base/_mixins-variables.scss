@@ -8,6 +8,8 @@ $accent-yellow: rgb(220, 171, 0);
 $accent-green: rgb(165, 255, 144);
 $accent-purple: rgb(218, 233, 249);
 
+$border-radius: 10px;
+
 /* Mixins */
 
 @mixin fontSize($size-value) {

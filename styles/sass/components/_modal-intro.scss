@@ -7,12 +7,45 @@
     left: 0;
     background-color: $primary-dark;
     transition: all 250ms ease-in-out;
+    z-index: 10;
 
     .iconLeft {
       position: absolute;
       display: inline-block;
       top: 40%;
       right: -150px;
+    }
+
+    .intro {
+      color: #000;
+      padding: 50px;
+
+      h1 {
+        @include fontSize(60);
+      }
+
+      p {
+        @include fontSize(30);
+        margin: 30px;
+        font-weight: 300;
+      }
+
+      .buttonStart {
+        border: 1px solid $accent-blue;
+        box-shadow: 0px 0px 5px $accent-blue;
+        width: 40%;
+        color: $accent-yellow;
+
+        &::after {
+          content: "";
+          margin: 0;
+        }
+
+        &:hover,
+        &:focus {
+          color: $primary-dark;
+        }
+      }
     }
   }
 
@@ -24,6 +57,7 @@
     right: 0;
     background-color: $accent-yellow;
     transition: all 250ms ease-in-out;
+    z-index: 10;
 
     .iconRight {
       position: absolute;
@@ -36,31 +70,5 @@
 
   .modalIcon {
     @include fontSize(300);
-  }
-}
-
-.left {
-  left: -50%;
-}
-
-.right {
-  right: -50%;
-}
-
-.intro {
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #000;
-  margin-top: 50px;
-
-  h1 {
-    @include fontSize(60);
-  }
-
-  p {
-    @include fontSize(30);
   }
 }

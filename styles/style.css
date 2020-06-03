@@ -318,6 +318,10 @@ p {
   overflow: hidden;
 }
 
+.close {
+  display: none;
+}
+
 .wrapper {
   width: 85%;
   max-width: 1200px;
@@ -407,6 +411,7 @@ p {
   background-color: #193549;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+  z-index: 10;
 }
 
 .modalIntro .modalLeft .iconLeft {
@@ -414,6 +419,38 @@ p {
   display: inline-block;
   top: 40%;
   right: -150px;
+}
+
+.modalIntro .modalLeft .intro {
+  color: #000;
+  padding: 50px;
+}
+
+.modalIntro .modalLeft .intro h1 {
+  font-size: 6rem;
+}
+
+.modalIntro .modalLeft .intro p {
+  font-size: 3rem;
+  margin: 30px;
+  font-weight: 300;
+}
+
+.modalIntro .modalLeft .intro .buttonStart {
+  border: 1px solid #9cfcfc;
+  -webkit-box-shadow: 0px 0px 5px #9cfcfc;
+          box-shadow: 0px 0px 5px #9cfcfc;
+  width: 40%;
+  color: #dcab00;
+}
+
+.modalIntro .modalLeft .intro .buttonStart::after {
+  content: "";
+  margin: 0;
+}
+
+.modalIntro .modalLeft .intro .buttonStart:hover, .modalIntro .modalLeft .intro .buttonStart:focus {
+  color: #193549;
 }
 
 .modalIntro .modalRight {
@@ -425,6 +462,7 @@ p {
   background-color: #dcab00;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+  z-index: 10;
 }
 
 .modalIntro .modalRight .iconRight {
@@ -439,34 +477,41 @@ p {
   font-size: 30rem;
 }
 
-.left {
-  left: -50%;
+.button {
+  position: relative;
+  font-size: 2rem;
+  background-color: transparent;
+  -webkit-box-shadow: 0px 0px 5px #9cfcfc;
+          box-shadow: 0px 0px 5px #9cfcfc;
+  border: 1px solid #a5ff90;
+  border-radius: 150px;
+  color: #dcab00;
+  padding: 10px;
+  width: 100%;
+  text-transform: uppercase;
+  -webkit-transition: all 250ms ease-in;
+  transition: all 250ms ease-in;
+  text-align: center;
 }
 
-.right {
-  right: -50%;
+.button:hover, .button:focus {
+  background-color: rgba(220, 171, 0, 0.7);
+  color: #193549;
 }
 
-.intro {
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  color: #000;
-  margin-top: 50px;
+.button::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 30px;
 }
 
-.intro h1 {
-  font-size: 6rem;
-}
-
-.intro p {
-  font-size: 3rem;
+.button.btnPlayAgain {
+  width: 80%;
+  margin-top: 40px;
 }
 
 .header {
+  position: relative;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -477,7 +522,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
+  z-index: 2;
 }
 
 .header h2,
@@ -545,30 +590,70 @@ p {
   font-weight: 600;
 }
 
-.button {
-  position: relative;
-  font-size: 2rem;
-  background-color: transparent;
-  -webkit-box-shadow: 0px 0px 5px #9cfcfc;
-          box-shadow: 0px 0px 5px #9cfcfc;
+.modalScore .modalScoreLeft {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: -50%;
+  background-color: #193549;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  background-color: #122637;
+  z-index: 10;
+}
+
+.modalScore .modalScoreRight {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  right: -50%;
+  background-color: #193549;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  background-color: #122637;
+  z-index: 10;
+}
+
+.modalScore .scoreTotal {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  width: 30%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  z-index: 10;
   border: 1px solid #a5ff90;
-  border-radius: 150px;
-  color: #dcab00;
-  padding: 10px;
-  width: 100%;
-  text-transform: uppercase;
-  -webkit-transition: all 250ms ease-in;
-  transition: all 250ms ease-in;
+  -webkit-box-shadow: 0px 0px 5px #a5ff90;
+          box-shadow: 0px 0px 5px #a5ff90;
+  border-radius: 10px;
+  text-align: center;
+  padding: 30px;
+}
+
+.modalScore .scoreTotal h3 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.modalScore .scoreTotal .scoreItem {
+  border: 1px solid #dcab00;
+  border-radius: 25px;
   text-align: center;
 }
 
-.button:hover {
-  background-color: rgba(220, 171, 0, 0.7);
-  color: #193549;
+.modalScore .scoreTotal .scoreItem.row {
+  margin: 20px 0;
 }
 
-.button::after {
-  content: "→";
-  display: inline-block;
-  margin-left: 30px;
+.modalScore .scoreTotal .scoreItem p {
+  padding: 10px;
+  font-size: 1.6rem;
+}
+
+.modalScore .scoreTotal .scoreItem .auto {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }

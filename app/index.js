@@ -11,7 +11,9 @@ quizApp.quiz = [
 ];
 
 
-quizApp.animateModal = (i) => {
+quizApp.counter = 0;
+
+quizApp.animateModal = i => {
     // Remove width from modal left/right to hide it (or animate)
     $(".modalRight").animate({
         width: 0
@@ -48,16 +50,16 @@ quizApp.userInput = (input, i) => {
     console.log(userArr[i].userKeys.length);
 }
 
-quizApp.updateCounter = (val) => {
-    const counterValue = $(".counter").text(`${val}`);
-    return counterValue;
+quizApp.updateCounter = val => {
+    const counterHTML = $(".counter").text(`${val}`);
+    return counterHTML;
 }
 
-quizApp.openModalScore = (num) => {
+quizApp.openModalScore = num => {
     const myArr = quizApp.quiz;
     if ((myArr.length - 1) === num) {
 
-        // Display: none modal intro when game is over
+        // Hide modal intro when game is over
         $('.modalScore').removeClass('close');
 
         // Add animation
@@ -81,9 +83,7 @@ quizApp.openModalScore = (num) => {
 }
 
 quizApp.init = () => {
-    let counter = 0;
     $('.modalScore').addClass('close');
-
 
 
     $(".buttonStart").on("click", function (e) {
@@ -91,28 +91,29 @@ quizApp.init = () => {
         e.preventDefault();
 
         // index starts at 0
-        quizApp.animateModal(counter);
+        quizApp.animateModal(quizApp.counter);
     });
 
 
     // Listen "document" object on the keydown event 
     $(document).on("keydown", function (e) {
+        let key = e.key;
         // Prevent browser default behavior 
         if (e.key === "s" || e.key === "o" || e.key === "f" || e.key === "p") {
             e.preventDefault();
         }
 
-        // In a key placeholder I passed e.key argument
-        // Change the default value of META & SPACE keys 
-        if (e.key === "Meta") {
-            e.key = "cmd";
+        
+        // Change default value of META & SPACE keys 
+        if (key === "Meta") {
+            key = "cmd";
+        }
+        
+        if (key === " ") {
+            key = "Space";
         }
 
-        if (e.key === "Space") {
-            e.key = "space";
-        }
-        // quizApp.keyChecker(e.key);
-        quizApp.userInput(e.key, counter);
+        quizApp.userInput(key, quizApp.counter);
     });
 
 
@@ -121,14 +122,14 @@ quizApp.init = () => {
     $(".buttonNext").on("click", function (e) {
         e.preventDefault();
 
-        $("h2").text(`${quizApp.quiz[++counter].question}`);
+        $("h2").text(`${quizApp.quiz[++quizApp.counter].question}`);
 
         // Clears up user input
         $(".userInput1").text("");
         $(".userInput2").text("");
 
-        quizApp.updateCounter((counter + 1));
-        quizApp.openModalScore(counter);
+        quizApp.updateCounter((quizApp.counter + 1));
+        quizApp.openModalScore(quizApp.counter);
     })
 }
 

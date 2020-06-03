@@ -13,7 +13,7 @@
 
 <body>
 
-    <header class="header">
+    <header class="header overflowHidden">
         <div class="wrapper">
             <!-- Counter -->
             <div class="headerCounter">
@@ -32,8 +32,6 @@
                     </div>
                     <div class="col col40">
                         <a class="button buttonNext" href="">next</a>
-                        <!-- Add a refresh button -->
-                        <!-- <a href=""><i class="fas fa-sync"></i></a> -->
                     </div>
                 </div>
             </div>
@@ -43,19 +41,50 @@
 
     <!-- Modal window -->
 
-    <div class="intro">
-        <h1>VScode shortcut PRO</h1>
-        <p>Hello,this is a shortcut modern quiz! Play it for practicing you skills!</p>
-        <a class="button buttonStart" href="">Start</a>
-    </div>
-
-    <div class="modalIntro">
-        <div class="modalLeft overflowHidden"><span class="modalIcon iconLeft">⌘</span></div>
-        <div class="modalRight overflowHidden"><span class="modalIcon iconRight">⌘</span></div>
+    <div class="modalIntro overflowHidden">
+        <div class="modalLeft overflowHidden">
+            <div class="intro">
+                <h1>VScode shortcut PRO</h1>
+                <p>Hello,this is a shortcut modern quiz! Play it for practicing you skills!</p>
+                <a class="button buttonStart" href="">Start</a>
+            </div>
+            <span class="modalIcon iconLeft">⌘</span>
+        </div>
+        <div class="modalRight overflowHidden">
+            <span class="modalIcon iconRight">⌘</span>
+        </div>
     </div>
 
     <div class="modalScore">
-        <ul></ul>
+        <div class="modalScoreLeft"></div>
+        <div class="modalScoreRight"></div>
+
+        <div class="scoreTotal">
+            <h3>Your score is: </h3>
+            <ul class="scoreList">
+                <li class="scoreItem scoreItem1 row">
+                    <p class="auto scoreInput">hello</p>
+                    <p class="auto scoreResult">hello</p>
+                </li>
+                <li class="scoreItem scoreItem2 row">
+                    <p class="auto scoreInput">hello</p>
+                    <p class="auto scoreResult">hello</p>
+                </li>
+                <li class="scoreItem scoreItem3 row">
+                    <p class="auto scoreInput">hello</p>
+                    <p class="auto scoreResult">hello</p>
+                </li>
+                <li class="scoreItem scoreItem4 row">
+                    <p class="auto scoreInput">hello</p>
+                    <p class="auto scoreResult">hello</p>
+                </li>
+                <li class="scoreItem scoreItem5 row">
+                    <p class="auto scoreInput">hello</p>
+                    <p class="auto scoreResult">hello</p>
+                </li>
+            </ul>
+            <a class="button btnPlayAgain" href="">play again</a>
+        </div>
     </div>
 
 
@@ -66,3 +95,30 @@
 </body>
 
 </html>
+
+
+
+<!-- <div class="scoreTotal row">
+    <ul class="scoreList auto">
+        <li class="scoreItem scoreItem1 row">
+            <p class="auto col scoreInput">hello</p>
+            <p class="auto col scoreResult">hello</p>
+        </li>
+        <li class="scoreItem scoreItem2 row">
+            <p class="auto col scoreInput">hello</p>
+            <p class="auto col scoreResult">hello</p>
+        </li>
+        <li class="scoreItem scoreItem3 row">
+            <p class="auto col scoreInput">hello</p>
+            <p class="auto col scoreResult">hello</p>
+        </li>
+        <li class="scoreItem scoreItem4 row">
+            <p class="auto col scoreInput">hello</p>
+            <p class="auto col scoreResult">hello</p>
+        </li>
+        <li class="scoreItem scoreItem5 row">
+            <p class="auto col scoreInput">hello</p>
+            <p class="auto col scoreResult">hello</p>
+        </li>
+    </ul>
+</div> -->

@@ -28,21 +28,24 @@ quizApp.animateModal = (i) => {
     $("h2").text(`${quizApp.quiz[i].question}`);
 }
 
-quizApp.keyChecker = (key) => {
-    // In a key placeholder I passed e.key argument
-    // Change the default value of META & SPACE keys 
-    if (key === "Meta") {
-        key = "cmd";
-    }
 
-    if (key === "Space") {
-        key = "space";
-    }
-}
-
-
-quizApp.userInput = (input) => {
+quizApp.userInput = (input, i) => {
     // Push user inputs into "userKeys" array
+    const userArr = quizApp.quiz;
+
+    //Allows to hold only 2 values in an array
+
+    if (userArr[i].userKeys.length < userArr[i].answer.length) {
+        userArr[i].userKeys.push(input);
+    } else {
+        userArr[i].userKeys = [];
+        userArr[i].userKeys.push(input);
+    }
+
+    $(".userInput1").text(userArr[i].userKeys[0]);
+    $(".userInput2").text(userArr[i].userKeys[1]);
+
+    console.log(userArr[i].userKeys.length);
 }
 
 quizApp.updateCounter = (val) => {
@@ -99,8 +102,17 @@ quizApp.init = () => {
             e.preventDefault();
         }
 
-        quizApp.keyChecker(e.key);
-        quizApp.userInput(e.key)
+        // In a key placeholder I passed e.key argument
+        // Change the default value of META & SPACE keys 
+        if (e.key === "Meta") {
+            e.key = "cmd";
+        }
+
+        if (e.key === "Space") {
+            e.key = "space";
+        }
+        // quizApp.keyChecker(e.key);
+        quizApp.userInput(e.key, counter);
     });
 
 
@@ -110,7 +122,7 @@ quizApp.init = () => {
         e.preventDefault();
 
         $("h2").text(`${quizApp.quiz[++counter].question}`);
-        
+
         // Clears up user input
         $(".userInput1").text("");
         $(".userInput2").text("");

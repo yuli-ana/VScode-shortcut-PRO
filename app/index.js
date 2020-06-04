@@ -3,13 +3,12 @@ const quizApp = {};
 
 // Create an array of objects with question and correct answer
 quizApp.quiz = [
-    { question: "Enter shortcut command to create a new file ?", answer: ["Meta", "n"], userKeys: [], },
-    { question: "Enter shortcut command to insert backtick notation `` ?", answer: ["Control", "`"], userKeys: [], },
-    { question: "Enter shortcut command to find anything in VScode ?", answer: ["Meta", "f"], userKeys: [], },
-    { question: "Enter shortcut command to open file ?", answer: ["Meta", "o"], userKeys: [], },
-    { question: "Enter shortcut command - quick open ?", answer: ["Meta", "p"], userKeys: [], }
+    { question: "Enter shortcut command to create a new file ?", answer: ["cmd", "n"], userKeys: [], },
+    { question: "Enter shortcut command to insert backtick notation `` ?", answer: ["control", "`"], userKeys: [], },
+    { question: "Enter shortcut command to find anything in VScode ?", answer: ["cmd", "f"], userKeys: [], },
+    { question: "Enter shortcut command to open file ?", answer: ["cmd", "o"], userKeys: [], },
+    { question: "Enter shortcut command - quick open ?", answer: ["cmd", "p"], userKeys: [], }
 ];
-
 
 quizApp.counter = 0;
 
@@ -35,6 +34,7 @@ quizApp.userInput = (input, i) => {
     // Push user inputs into "userKeys" array
     const userArr = quizApp.quiz;
 
+    console.log(i);
     //Allows to hold only 2 values in an array
 
     if (userArr[i].userKeys.length < userArr[i].answer.length) {
@@ -46,8 +46,6 @@ quizApp.userInput = (input, i) => {
 
     $(".userInput1").text(userArr[i].userKeys[0]);
     $(".userInput2").text(userArr[i].userKeys[1]);
-
-    console.log(userArr[i].userKeys.length);
 }
 
 quizApp.updateCounter = val => {
@@ -57,36 +55,60 @@ quizApp.updateCounter = val => {
 
 quizApp.openModalScore = num => {
     const myArr = quizApp.quiz;
-    if ((myArr.length - 1) === num) {
+    const scoreList = $(".scoreList");
 
-        // Hide modal intro when game is over
-        $('.modalScore').removeClass('close');
 
-        // Add animation
-        setTimeout(function () {
-            $(".modalScoreLeft").animate({
-                left: "0"
-            }, 1000);
 
-            $(".modalScoreRight").animate({
-                right: "0"
-            }, 1000);
-        })
+    // Hide modal intro when game is over
+    $(".modalScore").removeClass("close");
 
-        // Wait for animation to be finished then display score window
-        setTimeout(function () {
-            $('.scoreTotal').show(2000, function () {
-                $(this).css({ "top": "15%" });
-            });
-        }, 2000)
-    }
+    // Add animation
+    setTimeout(function () {
+        $(".modalScoreLeft").animate({
+            left: "0"
+        }, 1000);
+
+        $(".modalScoreRight").animate({
+            right: "0"
+        }, 1000);
+    })
+
+    // Update DOM with questions and score
+    myArr.forEach(question => {
+        const listItem = $("<li>");
+        const questionHtml = $("<p>")
+        const finalScore = $("<p>").addClass("questionFinalScore");
+        let defaultAnswer = "correct";
+        questionHtml.text(question.question);
+
+        for (let i = 0; i < question.answer.length; i += 1) {
+            if (question.answer[i] !== question.userKeys[i]) {
+                defaultAnswer = "fail";
+            }
+        }
+
+        finalScore.text(defaultAnswer);
+
+        listItem.append(questionHtml, finalScore);
+        scoreList.append(listItem);
+    })
+
+    // Wait for animation to be finished then display score window
+    setTimeout(function () {
+        $('.scoreTotal').show(2000, function () {
+
+            $(this).css({ "top": "10%" });
+        });
+    }, 2000)
 }
 
-quizApp.init = () => {
+
+quizApp.init = function() {
     $('.modalScore').addClass('close');
 
 
     $(".buttonStart").on("click", function (e) {
+      
         // prevent link default behaviour 
         e.preventDefault();
 
@@ -103,12 +125,12 @@ quizApp.init = () => {
             e.preventDefault();
         }
 
-        
+
         // Change default value of META & SPACE keys 
         if (key === "Meta") {
             key = "cmd";
         }
-        
+
         if (key === " ") {
             key = "Space";
         }
@@ -122,14 +144,19 @@ quizApp.init = () => {
     $(".buttonNext").on("click", function (e) {
         e.preventDefault();
 
-        $("h2").text(`${quizApp.quiz[++quizApp.counter].question}`);
+        quizApp.counter += 1;
+
+        $("h2").text(quizApp.quiz[quizApp.counter].question);
 
         // Clears up user input
         $(".userInput1").text("");
         $(".userInput2").text("");
 
         quizApp.updateCounter((quizApp.counter + 1));
-        quizApp.openModalScore(quizApp.counter);
+
+        if ((quizApp.quiz.length - 1) === quizApp.counter) {
+            quizApp.openModalScore();
+        }
     })
 }
 

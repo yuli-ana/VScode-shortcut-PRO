@@ -34,7 +34,6 @@ quizApp.userInput = (input, i) => {
     // Push user inputs into "userKeys" array
     const userArr = quizApp.quiz;
 
-    console.log(i);
     //Allows to hold only 2 values in an array
 
     if (userArr[i].userKeys.length < userArr[i].answer.length) {
@@ -57,8 +56,6 @@ quizApp.openModalScore = num => {
     const myArr = quizApp.quiz;
     const scoreList = $(".scoreList");
 
-
-
     // Hide modal intro when game is over
     $(".modalScore").removeClass("close");
 
@@ -75,9 +72,9 @@ quizApp.openModalScore = num => {
 
     // Update DOM with questions and score
     myArr.forEach(question => {
-        const listItem = $("<li>");
-        const questionHtml = $("<p>")
-        const finalScore = $("<p>").addClass("questionFinalScore");
+        const listItem = $("<li>").addClass("auto");
+        const questionHtml = $("<p>").addClass("auto");
+        const finalScore = $("<p>").addClass("questionFinalScore auto");
         let defaultAnswer = "correct";
         questionHtml.text(question.question);
 
@@ -107,18 +104,18 @@ quizApp.init = function() {
     $('.modalScore').addClass('close');
 
 
-    $(".buttonStart").on("click", function (e) {
+    $(".buttonStart").on("click", (e) => {
       
         // prevent link default behaviour 
         e.preventDefault();
 
         // index starts at 0
-        quizApp.animateModal(quizApp.counter);
+        this.animateModal(this.counter);
     });
 
 
     // Listen "document" object on the keydown event 
-    $(document).on("keydown", function (e) {
+    $(document).on("keydown", (e) => {
         let key = e.key;
         // Prevent browser default behavior 
         if (e.key === "s" || e.key === "o" || e.key === "f" || e.key === "p") {
@@ -128,39 +125,37 @@ quizApp.init = function() {
 
         // Change default value of META & SPACE keys 
         if (key === "Meta") {
-            key = "cmd";
+            key = "Cmd";
         }
 
         if (key === " ") {
             key = "Space";
         }
 
-        quizApp.userInput(key, quizApp.counter);
+        this.userInput(key, this.counter);
     });
 
 
 
 
-    $(".buttonNext").on("click", function (e) {
+    $(".buttonNext").on("click", (e) => {
         e.preventDefault();
 
-        quizApp.counter += 1;
+        this.counter += 1;
 
-        $("h2").text(quizApp.quiz[quizApp.counter].question);
+        $("h2").text(this.quiz[this.counter].question);
 
         // Clears up user input
         $(".userInput1").text("");
         $(".userInput2").text("");
 
-        quizApp.updateCounter((quizApp.counter + 1));
+        quizApp.updateCounter((this.counter + 1));
 
-        if ((quizApp.quiz.length - 1) === quizApp.counter) {
-            quizApp.openModalScore();
+        if ((this.quiz.length - 1) === this.counter) {
+            this.openModalScore();
         }
     })
 }
-
-
 
 
 

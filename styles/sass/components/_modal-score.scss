@@ -1,26 +1,22 @@
 .modalScore {
-  .modalScoreLeft {
+  .modalScoreLeft,
+  .modalScoreRight {
     position: absolute;
+    top: 0;
     height: 100%;
     width: 50%;
-    top: 0;
-    left: -50%;
     background-color: $primary-dark;
-    transition: all 250ms ease-in-out;
     background-color: $accent-dark;
+    transition: all 250ms ease-in-out;
     z-index: 10;
   }
 
+  .modalScoreLeft {
+    left: -50%;
+  }
+
   .modalScoreRight {
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    top: 0;
     right: -50%;
-    background-color: $primary-dark;
-    transition: all 250ms ease-in-out;
-    background-color: $accent-dark;
-    z-index: 10;
   }
 
   .scoreTotal {
@@ -39,6 +35,11 @@
     h3 {
       @include fontSize(30);
       margin: 20px 0;
+    }
+
+    .btnPlayAgain {
+      width: 80%;
+      margin-top: 40px;
     }
 
     .scoreList {
@@ -67,24 +68,3 @@
     }
   }
 }
-
-// li.scoreItem {
-//   border: 1px solid $accent-yellow;
-//   border-radius: 25px;
-
-//   text-align: center;
-
-//   &li.row {
-//     margin: 20px 0;
-//   }
-
-//   li p {
-//     padding: 10px;
-//     @include fontSize(16);
-//   }
-
-//   li.auto {
-//     flex-grow: 1;
-//   }
-// }
-// }

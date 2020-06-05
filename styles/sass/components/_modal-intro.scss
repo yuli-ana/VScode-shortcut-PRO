@@ -18,7 +18,8 @@
   .iconRight,
   .iconLeft {
     display: inline-block;
-    top: 40%;
+    top: 25%;
+    right: 0;
   }
 
   .modalLeft {
@@ -39,24 +40,16 @@
 
       p {
         @include fontSize(30);
-        margin: 30px;
+        margin: 30px 0;
         font-weight: 300;
       }
 
       .buttonStart {
-        border: 1px solid $accent-blue;
-        box-shadow: 0px 0px 5px $accent-blue;
         width: 40%;
-        color: $accent-yellow;
 
         &::after {
           content: "";
           margin: 0;
-        }
-
-        &:hover,
-        &:focus {
-          color: $primary-dark;
         }
       }
     }

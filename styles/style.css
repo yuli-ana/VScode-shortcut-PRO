@@ -422,7 +422,8 @@ p {
 .modalIntro .iconRight,
 .modalIntro .iconLeft {
   display: inline-block;
-  top: 40%;
+  top: 25%;
+  right: 0;
 }
 
 .modalIntro .modalLeft {
@@ -445,25 +446,17 @@ p {
 
 .modalIntro .modalLeft .intro p {
   font-size: 3rem;
-  margin: 30px;
+  margin: 30px 0;
   font-weight: 300;
 }
 
 .modalIntro .modalLeft .intro .buttonStart {
-  border: 1px solid #9cfcfc;
-  -webkit-box-shadow: 0px 0px 5px #9cfcfc;
-          box-shadow: 0px 0px 5px #9cfcfc;
   width: 40%;
-  color: #dcab00;
 }
 
 .modalIntro .modalLeft .intro .buttonStart::after {
   content: "";
   margin: 0;
-}
-
-.modalIntro .modalLeft .intro .buttonStart:hover, .modalIntro .modalLeft .intro .buttonStart:focus {
-  color: #193549;
 }
 
 .modalIntro .modalRight {
@@ -483,7 +476,7 @@ p {
 .button {
   position: relative;
   font-size: 2rem;
-  background-color: transparent;
+  background-color: darkslategray;
   -webkit-box-shadow: 0px 0px 5px #9cfcfc;
           box-shadow: 0px 0px 5px #9cfcfc;
   border: 1px solid #a5ff90;
@@ -492,8 +485,8 @@ p {
   padding: 10px;
   width: 100%;
   text-transform: uppercase;
-  -webkit-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
   text-align: center;
 }
 
@@ -522,6 +515,37 @@ p {
       -ms-flex-align: center;
           align-items: center;
   z-index: 2;
+}
+
+.header .headerRules {
+  position: absolute;
+  width: 50%;
+  top: -100%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  z-index: 10;
+  border: 1px solid #dcab00;
+  border-radius: 5px;
+}
+
+.header .headerRules .closeRules {
+  position: absolute;
+  top: 30px;
+  width: 20%;
+  background: darkslategray;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.header .headerRules .closeRules.button {
+  background-color: darkslategrey;
+}
+
+.header .headerRules .closeRules.button::after {
+  content: "";
+  margin: 0;
 }
 
 .header h2,
@@ -563,6 +587,10 @@ p {
 
 .header .headerQuiz {
   padding: 50px 0;
+}
+
+.header .headerQuiz h2 {
+  text-align: center;
 }
 
 .header .userAnswer {

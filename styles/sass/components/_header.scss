@@ -6,6 +6,35 @@
   align-items: center;
   z-index: 2;
 
+  .headerRules {
+    position: absolute;
+    width: 50%;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10;
+    border: 1px solid $accent-yellow;
+    border-radius: 5px;
+
+    .closeRules {
+      position: absolute;
+      top: 30px;
+      width: 20%;
+      background: darkslategray;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &.button {
+        background-color: darkslategrey;
+
+        &::after {
+          content: "";
+          margin: 0;
+        }
+      }
+    }
+  }
+
   h2,
   .userAnswer {
     @include fontSize(30);
@@ -44,8 +73,11 @@
   }
 
   .headerQuiz {
-    // border: 1px solid $accent-yellow;
     padding: 50px 0;
+
+    h2 {
+      text-align: center;
+    }
   }
 
   .userAnswer {
@@ -70,11 +102,3 @@
     }
   }
 }
-
-// .bg {
-//   background-color: rgba(165, 255, 144, 0.2);
-// }
-
-// .bg {
-//   background-color: rgba(255, 1, 1, 0.2);
-// }

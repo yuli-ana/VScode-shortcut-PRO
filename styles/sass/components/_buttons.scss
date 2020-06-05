@@ -1,7 +1,7 @@
 .button {
   position: relative;
   @include fontSize(20);
-  background-color: transparent;
+  background-color: darkslategray;
   box-shadow: 0px 0px 5px $accent-blue;
   border: 1px solid $accent-green;
   border-radius: 150px;

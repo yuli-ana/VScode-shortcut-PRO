@@ -19,7 +19,6 @@
   .iconLeft {
     display: inline-block;
     top: 25%;
-    right: 0;
   }
 
   .modalLeft {
@@ -28,30 +27,6 @@
 
     .iconLeft {
       right: -150px;
-    }
-
-    .intro {
-      color: #000;
-      padding: 50px;
-
-      h1 {
-        @include fontSize(60);
-      }
-
-      p {
-        @include fontSize(30);
-        margin: 30px 0;
-        font-weight: 300;
-      }
-
-      .buttonStart {
-        width: 40%;
-
-        &::after {
-          content: "";
-          margin: 0;
-        }
-      }
     }
   }
 
@@ -67,5 +42,45 @@
 
   .modalIcon {
     @include fontSize(300);
+  }
+
+  .intro {
+    position: absolute;
+    color: #000;
+    top: 10%;
+    left: 51%;
+    transform: translateX(-50%);
+    min-height: 75vh;
+    z-index: 100;
+    text-align: center;
+    width: 60%;
+
+    &.row {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    h1 {
+      @include fontSize(60);
+      text-shadow: 2px 2px 1px #000;
+      color: #fff;
+    }
+
+    p {
+      @include fontSize(30);
+      margin: 30px 0;
+      font-weight: 300;
+      text-shadow: 2px 2px 1px #000;
+      color: #fff;
+    }
+
+    .buttonStart {
+      width: 40%;
+
+      &::after {
+        content: "";
+        margin: 0;
+      }
+    }
   }
 }

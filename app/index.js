@@ -1,8 +1,8 @@
-// Create a namespace
+// NAMESPACE
 const quizApp = {};
 quizApp.counter = 0;
 
-// Create an array of objects with question and correct answer
+// DATA STRUCTURE
 quizApp.quiz = [
     { question: "Enter shortcut for creating a new file ?", answer: ["Cmd", "n"], userKeys: [], },
     { question: "Enter shortcut to open terminal ?", answer: ["Control", "`"], userKeys: [], },
@@ -12,6 +12,7 @@ quizApp.quiz = [
 ];
 
 
+// ANIMATE MODAL
 quizApp.animateModal = function () {
     // Remove width from modal left/right to hide it (or animate)
     $('.modalRight').animate({
@@ -23,40 +24,44 @@ quizApp.animateModal = function () {
     });
 
     // Hide introduction text
-    $(".intro").hide();
+    $(".modalIntroTitle").hide();
 
-    //     // On click ("buttonStart") render 1 question
-    //     $("h2").text(`${this.quiz[this.counter].question}`);
 }
 
-quizApp.hideRulesModal = function () {
-    $('.closeRules').on('click', (e) => {
-        e.preventDefault();
 
-        // On click ("buttonStart") render 1 question
-        $("h2").text(`${this.quiz[this.counter].question}`);
 
-        $('.headerRules').animate({
-            top: "-80%"
-        }, 1000);
-    })
-}
-
+// SHOW RULES MODAL
 quizApp.showRulesModal = function () {
-    $('.headerRules').animate({
+    $('.mainRules').animate({
         top: "20%"
     }, 1000);
 
     this.hideRulesModal();
 }
 
+// HIDE RULES MODAL
+quizApp.hideRulesModal = function () {
+    $('.btnCloseRules').on('click', (e) => {
+        e.preventDefault();
 
+        // On click ("buttonStart") render 1 question
+        $("h2").text(`${this.quiz[this.counter].question}`);
+
+        $('.mainRules').animate({
+            top: "-80%"
+        }, 1000);
+    })
+}
+
+// CLEAR HTML
 quizApp.clearHtml = () => {
     $(".userInput1").text("");
     $(".userInput2").text("");
 
 }
 
+
+// UPDATE SCORE
 quizApp.updateScoreHtml = function () {
     const scoreList = $(".scoreList");
     const myArr = this.quiz;
@@ -82,6 +87,8 @@ quizApp.updateScoreHtml = function () {
     })
 }
 
+
+// UPDATE INPUT
 quizApp.updateInput = function (input) {
     const userArr = this.quiz;
     const i = this.counter;
@@ -100,9 +107,11 @@ quizApp.updateInput = function (input) {
 }
 
 quizApp.updateCounter = function () {
-    $(".counter").text(`${this.counter < 5 ? this.counter + 1 : '5'}`);
+    $(".counter").text(`${this.counter < 5 ? this.counter + 1 : this.counter}`);
 }
 
+
+//SHUFFLE ARRAY
 quizApp.shuffleArray = function (arr) {
     let newArr, temp;
     for (let i = arr.length - 1; i > 0; i--) {
@@ -115,6 +124,7 @@ quizApp.shuffleArray = function (arr) {
     return arr;
 }
 
+// OPEN MODAL
 quizApp.openModalScore = function () {
     // Hide modal intro when game is over
     $(".modalScore").removeClass("close");
@@ -142,21 +152,25 @@ quizApp.openModalScore = function () {
 }
 
 
-
+// INIT
 quizApp.init = function () {
     $('.modalScore').addClass('close');
 
-    $(".buttonStart").on("click", (e) => {
+
+    // BUTTON START
+    $(".btnStart").on("click", (e) => {
         e.preventDefault();
+
+        // Hide modal intro
+        $('.modalIntro').hide();
 
         this.animateModal();
 
         this.showRulesModal();
-
     });
 
 
-    // Listen "document" object on the keydown event 
+    // KEYDOWN EVENT
     $(document).on("keydown", (e) => {
         let key = e.key;
 
@@ -177,27 +191,27 @@ quizApp.init = function () {
         this.updateInput(key);
     });
 
+
+    // BUTTON PLAY AGAIN
     $('.btnPlayAgain').on('click', () => {
-        $('.modalIntro').addClass('close');
         this.shuffleArray(this.quiz);
     })
 
 
 
-    $(".buttonNext").on("click", (e) => {
+    // BUTTON NEXT
+    $(".btnNext").on("click", (e) => {
         e.preventDefault();
 
         if (this.counter < this.quiz.length - 1) {
             $("h2").text(`${this.quiz[this.counter + 1].question}`);
             console.log(this.counter);
-        }else {
-            this.openModalScore();
-        }
-        
-        if ((this.quiz.length - 1) >= this.counter) {
-            this.counter += 1;
         } else {
             this.openModalScore();
+        }
+
+        if ((this.quiz.length - 1) >= this.counter) {
+            this.counter += 1;
         }
 
         this.clearHtml();

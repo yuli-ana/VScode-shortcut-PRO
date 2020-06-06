@@ -154,19 +154,27 @@ quizApp.openModalScore = function () {
 
 // INIT
 quizApp.init = function () {
+    // Hide modal intro
     $('.modalScore').addClass('close');
-
-
+    
+    
     // BUTTON START
     $(".btnStart").on("click", (e) => {
         e.preventDefault();
 
-        // Hide modal intro
-        $('.modalIntro').hide();
 
+        
         this.animateModal();
-
+        
+        
+        // test^
+        
+        
         this.showRulesModal();
+
+        setTimeout(function(){
+            $('.modalIntro').css({"display": "none"})
+        }, 1000);
     });
 
 

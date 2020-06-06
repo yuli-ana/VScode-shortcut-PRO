@@ -329,6 +329,12 @@ p {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -445,52 +451,160 @@ p {
   margin: 0;
 }
 
-h2,
-.userAnswer {
+@media only screen and (max-width: 768px) {
+  .main .mainRules .btnCloseRules {
+    top: 15px;
+    width: 30%;
+    padding: 5px;
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .main .mainRules {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .main .mainRules {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .main .mainRules {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main .mainRules {
+    width: 90%;
+  }
+}
+
+.main h2,
+.main .userAnswer {
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 2px;
 }
 
-.main,
-.userAnswer {
+@media only screen and (max-width: 480px) {
+  .main h2,
+  .main .userAnswer {
+    font-size: 1.6rem;
+  }
+}
+
+.main .userAnswer {
   position: relative;
 }
 
-.mainCounter,
-.userAnswer {
+.main .mainCounter,
+.main .userAnswer {
   text-align: center;
 }
 
-.userAnswer,
-.userCommand,
-.col.col40 {
+.main .userAnswer,
+.main .userCommand,
+.main .col.col40 {
   width: 100%;
 }
 
-.mainCounter {
-  position: absolute;
+.main .mainCounter {
+  position: fixed;
   top: 50px;
   right: 7.5%;
-  width: 10%;
+  width: 140px;
   border: 2px solid #dcab00;
   border-radius: 10px;
 }
 
-.mainCounter p {
+.main .mainCounter p {
   font-size: 2rem;
   padding: 10px;
 }
 
-.mainQuiz {
+.main .mainQuiz {
   padding: 50px 0;
 }
 
-.mainQuiz h2 {
+.main .mainQuiz h2 {
   text-align: center;
 }
 
-.userAnswer {
+@media only screen and (max-width: 480px) {
+  .main .mainQuiz h2 {
+    font-size: 2rem;
+  }
+}
+
+.main .mainQuiz .nextQuestion.col50 {
+  width: 50%;
+}
+
+.main .mainQuiz .nextQuestion.col50 .btnNext {
+  width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+  .main .mainQuiz .nextQuestion.col50 .btnNext::after {
+    content: "";
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .main .mainQuiz .nextQuestion.col50.col50 {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .main .mainQuiz .nextQuestion.col50.col50 {
+    -ms-flex-preferred-size: 80%;
+        flex-basis: 80%;
+    max-width: calc(80% - 40px);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .main .mainQuiz .nextQuestion.col50 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .main .mainQuiz.col60 {
+    -ms-flex-preferred-size: 80%;
+        flex-basis: 80%;
+    max-width: calc(80% - 40px);
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .main .mainQuiz .col75 {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    max-width: calc(100% - 40px);
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .main .mainQuiz.col60 {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    max-width: calc(100% - 40px);
+    width: 100%;
+  }
+}
+
+.main .userAnswer {
   padding: 30px;
   border: 1px solid #dcab00;
   border-radius: 10px;
@@ -499,7 +613,7 @@ h2,
           box-shadow: 0px 0px 10px #dcab00;
 }
 
-.userAnswer::after {
+.main .userAnswer::after {
   content: "+";
   position: absolute;
   top: 50%;
@@ -509,7 +623,7 @@ h2,
   font-size: 3rem;
 }
 
-.userAnswer .userInput {
+.main .userAnswer .userInput {
   display: inline-block;
   font-weight: 600;
 }
@@ -557,6 +671,12 @@ h2,
   z-index: 100;
 }
 
+@media only screen and (max-width: 768px) {
+  .modalIntro .modalLeft::after {
+    top: 65%;
+  }
+}
+
 .modalIntro .modalRight {
   right: 0;
   background-color: #dcab00;
@@ -574,6 +694,12 @@ h2,
   color: #193549;
 }
 
+@media only screen and (max-width: 768px) {
+  .modalIntro .modalRight::after {
+    top: 65%;
+  }
+}
+
 .modalIntro .modalIcon {
   font-size: 30rem;
 }
@@ -581,9 +707,9 @@ h2,
 .modalIntro .modalIntroTitle {
   position: absolute;
   top: 10%;
-  left: 51%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   min-height: 75vh;
   z-index: 100;
   text-align: center;
@@ -598,25 +724,90 @@ h2,
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 0;
+}
+
+.modalIntro .modalIntroTitle h1,
+.modalIntro .modalIntroTitle p {
+  color: #000;
+  text-shadow: 2px 2px 1px #fff;
 }
 
 .modalIntro .modalIntroTitle h1 {
   font-size: 6rem;
-  text-shadow: 2px 2px 1px #000;
-  color: #fff;
+}
+
+@media only screen and (max-width: 1100px) {
+  .modalIntro .modalIntroTitle h1 {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .modalIntro .modalIntroTitle h1 {
+    font-size: 4rem;
+  }
 }
 
 .modalIntro .modalIntroTitle p {
   font-size: 3rem;
   margin: 30px 0;
-  font-weight: 300;
-  text-shadow: 2px 2px 1px #000;
-  color: #fff;
+  text-shadow: unset;
+}
+
+@media only screen and (max-width: 940px) {
+  .modalIntro .modalIntroTitle p {
+    font-size: 2.5rem;
+    margin: 30px 0 70px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .modalIntro .modalIntroTitle p {
+    margin: 30px 0 50px;
+  }
 }
 
 .modalIntro .modalIntroTitle .btnStart::after {
   content: "";
   margin: 0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .modalIntro .modalIntroTitle {
+    position: relative;
+    min-height: 65vh;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modalIntro .modalIntroTitle {
+    min-height: unset;
+    padding-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .modalIntro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modalIntro {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 
 .btn {
@@ -647,6 +838,13 @@ h2,
   content: "→";
   display: inline-block;
   margin-left: 30px;
+}
+
+@media only screen and (max-width: 480px) {
+  .btn {
+    font-size: 1.8rem;
+    width: 200px;
+  }
 }
 
 .modalScore {

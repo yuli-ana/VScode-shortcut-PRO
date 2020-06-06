@@ -2,6 +2,10 @@
   width: 85%;
   max-width: 1200px;
   margin: 0 auto;
+
+  @include phone {
+    width: 90%;
+  }
 }
 
 .row {
@@ -11,7 +15,6 @@
   &.rowCenter {
     justify-content: center;
   }
-
 
   &.rowEnd {
     justify-content: end;

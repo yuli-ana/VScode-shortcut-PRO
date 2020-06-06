@@ -35,6 +35,10 @@
       right: -100px;
       transform: translateY(-50%);
       z-index: 100;
+
+      @include tablet-portrait {
+        top: 65%;
+      }
     }
   }
 
@@ -51,6 +55,10 @@
       transform: translateY(-50%);
       z-index: 100;
       color: $primary-dark;
+
+      @include tablet-portrait {
+        top: 65%;
+      }
     }
   }
 
@@ -61,8 +69,8 @@
   .modalIntroTitle {
     position: absolute;
     top: 10%;
-    left: 51%;
-    transform: translateX(-50%);
+    left: 50%;
+    transform: translate(-50%);
     min-height: 75vh;
     z-index: 100;
     text-align: center;
@@ -71,24 +79,40 @@
     &.row {
       flex-direction: column;
       justify-content: space-between;
+      margin: 0;
+    }
+
+    h1,
+    p {
+      color: #000;
+      text-shadow: 2px 2px 1px #fff;
     }
 
     h1 {
       @include fontSize(60);
-      text-shadow: 2px 2px 1px #000;
-      color: #fff;
-      
+
       @include tablet-landscape {
-        
+        @include fontSize(50);
+      }
+
+      @include tablet-landscape-sm {
+        @include fontSize(40);
       }
     }
 
     p {
       @include fontSize(30);
       margin: 30px 0;
-      font-weight: 300;
-      text-shadow: 2px 2px 1px #000;
-      color: #fff;
+      text-shadow: unset;
+
+      @include tablet-landscape-sm {
+        @include fontSize(25);
+        margin: 30px 0 70px;
+      }
+
+      @include phone {
+        margin: 30px 0 50px;
+      }
     }
 
     .btnStart {
@@ -97,5 +121,26 @@
         margin: 0;
       }
     }
+
+    @include tablet-landscape {
+      position: relative;
+      min-height: 65vh;
+      width: 100%;
+    }
+
+    @include tablet-portrait {
+      min-height: unset;
+      padding-top: 100px;
+    }
+  }
+
+  @include tablet-landscape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include tablet-portrait {
+    align-items: flex-start;
   }
 }

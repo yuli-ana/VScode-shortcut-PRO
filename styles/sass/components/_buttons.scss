@@ -24,4 +24,9 @@
     display: inline-block;
     margin-left: 30px;
   }
+
+  @include phone {
+    @include fontSize(18);
+    width: 200px;
+  }
 }

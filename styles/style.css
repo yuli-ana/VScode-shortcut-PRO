@@ -434,6 +434,8 @@ p {
   z-index: 10;
   border: 1px solid #dcab00;
   border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px #dcab00;
+          box-shadow: 0px 0px 15px #dcab00;
 }
 
 .main .mainRules .btnCloseRules {
@@ -486,7 +488,7 @@ p {
 
 .main h2,
 .main .userAnswer {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 2px;
 }

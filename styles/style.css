@@ -430,7 +430,7 @@ p {
   border-radius: 5px;
 }
 
-.main .mainRules .closeRules {
+.main .mainRules .btnCloseRules {
   position: absolute;
   top: 30px;
   width: 20%;
@@ -440,39 +440,35 @@ p {
           transform: translateX(-50%);
 }
 
-.main .mainRules .closeRules.button {
-  background-color: darkslategrey;
-}
-
-.main .mainRules .closeRules.button::after {
+.main .mainRules .btnCloseRules::after {
   content: "";
   margin: 0;
 }
 
-.main h2,
-.main .userAnswer {
+h2,
+.userAnswer {
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 2px;
 }
 
-.main .main,
-.main .userAnswer {
+.main,
+.userAnswer {
   position: relative;
 }
 
-.main .mainCounter,
-.main .userAnswer {
+.mainCounter,
+.userAnswer {
   text-align: center;
 }
 
-.main .userAnswer,
-.main .userCommand,
-.main .col.col40 {
+.userAnswer,
+.userCommand,
+.col.col40 {
   width: 100%;
 }
 
-.main .mainCounter {
+.mainCounter {
   position: absolute;
   top: 50px;
   right: 7.5%;
@@ -481,20 +477,20 @@ p {
   border-radius: 10px;
 }
 
-.main .mainCounter p {
+.mainCounter p {
   font-size: 2rem;
   padding: 10px;
 }
 
-.main .mainQuiz {
+.mainQuiz {
   padding: 50px 0;
 }
 
-.main .mainQuiz h2 {
+.mainQuiz h2 {
   text-align: center;
 }
 
-.main .userAnswer {
+.userAnswer {
   padding: 30px;
   border: 1px solid #dcab00;
   border-radius: 10px;
@@ -503,7 +499,7 @@ p {
           box-shadow: 0px 0px 10px #dcab00;
 }
 
-.main .userAnswer::after {
+.userAnswer::after {
   content: "+";
   position: absolute;
   top: 50%;
@@ -513,7 +509,7 @@ p {
   font-size: 3rem;
 }
 
-.main .userAnswer .userInput {
+.userAnswer .userInput {
   display: inline-block;
   font-weight: 600;
 }
@@ -553,9 +549,9 @@ p {
 .modalIntro .modalLeft::after {
   content: "⌘";
   position: absolute;
-  font-size: 15rem;
+  font-size: 20rem;
   top: 50%;
-  right: -75px;
+  right: -100px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 100;
@@ -569,9 +565,9 @@ p {
 .modalIntro .modalRight::after {
   content: "⌘";
   position: absolute;
-  font-size: 15rem;
+  font-size: 20rem;
   top: 50%;
-  left: -75px;
+  left: -100px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 100;
@@ -582,9 +578,51 @@ p {
   font-size: 30rem;
 }
 
-.button {
+.modalIntro .modalIntroTitle {
+  position: absolute;
+  top: 10%;
+  left: 51%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  min-height: 75vh;
+  z-index: 100;
+  text-align: center;
+  width: 60%;
+}
+
+.modalIntro .modalIntroTitle.row {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modalIntro .modalIntroTitle h1 {
+  font-size: 6rem;
+  text-shadow: 2px 2px 1px #000;
+  color: #fff;
+}
+
+.modalIntro .modalIntroTitle p {
+  font-size: 3rem;
+  margin: 30px 0;
+  font-weight: 300;
+  text-shadow: 2px 2px 1px #000;
+  color: #fff;
+}
+
+.modalIntro .modalIntroTitle .btnStart::after {
+  content: "";
+  margin: 0;
+}
+
+.btn {
   position: relative;
   font-size: 2rem;
+  display: inline-block;
   background-color: darkslategray;
   -webkit-box-shadow: 0px 0px 5px #9cfcfc;
           box-shadow: 0px 0px 5px #9cfcfc;
@@ -592,28 +630,36 @@ p {
   border-radius: 150px;
   color: #dcab00;
   padding: 10px;
-  width: 100%;
   text-transform: uppercase;
   -webkit-transition: all 150ms ease-in;
   transition: all 150ms ease-in;
   text-align: center;
+  width: 250px;
 }
 
-.button:hover, .button:focus {
+.btn:hover, .btn:focus {
   -webkit-box-shadow: 0px 0px 10px #9cfcfc;
           box-shadow: 0px 0px 10px #9cfcfc;
   letter-spacing: 1px;
 }
 
-.button::after {
+.btn::after {
   content: "→";
   display: inline-block;
   margin-left: 30px;
 }
 
+.modalScore {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
 .modalScore .modalScoreLeft,
-.modalScore .modalScoreRight,
-.modalScore .scoreTotal {
+.modalScore .modalScoreRight {
   position: absolute;
   width: 50%;
   z-index: 10;
@@ -621,12 +667,13 @@ p {
 
 .modalScore .modalScoreLeft,
 .modalScore .modalScoreRight {
-  top: 0;
   height: 100%;
-  background-color: #193549;
-  background-color: #122637;
+  width: 50%;
+  top: 0;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+  background-color: #15232d;
+  z-index: 100;
 }
 
 .modalScore .modalScoreLeft {
@@ -638,16 +685,18 @@ p {
 }
 
 .modalScore .scoreTotal {
+  position: absolute;
   top: -100%;
   left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   border: 1px solid #a5ff90;
   -webkit-box-shadow: 0px 0px 5px #a5ff90;
           box-shadow: 0px 0px 5px #a5ff90;
   border-radius: 10px;
   text-align: center;
   padding: 30px;
+  z-index: 200;
 }
 
 .modalScore .scoreTotal h3 {

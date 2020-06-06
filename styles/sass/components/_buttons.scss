@@ -1,16 +1,17 @@
-.button {
+.btn {
   position: relative;
   @include fontSize(20);
+  display: inline-block;
   background-color: darkslategray;
   box-shadow: 0px 0px 5px $accent-blue;
   border: 1px solid $accent-green;
   border-radius: 150px;
   color: $accent-yellow;
   padding: 10px;
-  width: 100%;
   text-transform: uppercase;
   transition: all 150ms ease-in;
   text-align: center;
+  width: 250px;
 
   &:hover,
   &:focus {

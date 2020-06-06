@@ -30,9 +30,9 @@
     &::after {
       content: "⌘";
       position: absolute;
-      @include fontSize(150);
+      @include fontSize(200);
       top: 50%;
-      right: -75px;
+      right: -100px;
       transform: translateY(-50%);
       z-index: 100;
     }
@@ -45,9 +45,9 @@
     &::after {
       content: "⌘";
       position: absolute;
-      @include fontSize(150);
+      @include fontSize(200);
       top: 50%;
-      left: -75px;
+      left: -100px;
       transform: translateY(-50%);
       z-index: 100;
       color: $primary-dark;
@@ -58,43 +58,44 @@
     @include fontSize(300);
   }
 
-  // .intro {
-  //   position: absolute;
-  //   color: #000;
-  //   top: 10%;
-  //   left: 51%;
-  //   transform: translateX(-50%);
-  //   min-height: 75vh;
-  //   z-index: 100;
-  //   text-align: center;
-  //   width: 60%;
+  .modalIntroTitle {
+    position: absolute;
+    top: 10%;
+    left: 51%;
+    transform: translateX(-50%);
+    min-height: 75vh;
+    z-index: 100;
+    text-align: center;
+    width: 60%;
 
-  //   &.row {
-  //     flex-direction: column;
-  //     justify-content: space-between;
-  //   }
+    &.row {
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-  //   h1 {
-  //     @include fontSize(60);
-  //     text-shadow: 2px 2px 1px #000;
-  //     color: #fff;
-  //   }
+    h1 {
+      @include fontSize(60);
+      text-shadow: 2px 2px 1px #000;
+      color: #fff;
+      
+      @include tablet-landscape {
+        
+      }
+    }
 
-  //   p {
-  //     @include fontSize(30);
-  //     margin: 30px 0;
-  //     font-weight: 300;
-  //     text-shadow: 2px 2px 1px #000;
-  //     color: #fff;
-  //   }
+    p {
+      @include fontSize(30);
+      margin: 30px 0;
+      font-weight: 300;
+      text-shadow: 2px 2px 1px #000;
+      color: #fff;
+    }
 
-  //   .buttonStart {
-  //     width: 40%;
-
-  //     &::after {
-  //       content: "";
-  //       margin: 0;
-  //     }
-  //   }
-  // }
+    .btnStart {
+      &::after {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
 }

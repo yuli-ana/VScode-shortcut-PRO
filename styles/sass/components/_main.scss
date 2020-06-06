@@ -16,7 +16,7 @@
     border: 1px solid $accent-yellow;
     border-radius: 5px;
 
-    .closeRules {
+    .btnCloseRules {
       position: absolute;
       top: 30px;
       width: 20%;
@@ -24,81 +24,77 @@
       left: 50%;
       transform: translateX(-50%);
 
-      &.button {
-        background-color: darkslategrey;
-
-        &::after {
-          content: "";
-          margin: 0;
-        }
+      &::after {
+        content: "";
+        margin: 0;
       }
     }
   }
+}
 
-  h2,
-  .userAnswer {
-    @include fontSize(30);
-    font-weight: 300;
-    letter-spacing: 2px;
+h2,
+.userAnswer {
+  @include fontSize(30);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.main,
+.userAnswer {
+  position: relative;
+}
+
+.mainCounter,
+.userAnswer {
+  text-align: center;
+}
+
+.userAnswer,
+.userCommand,
+.col.col40 {
+  width: 100%;
+}
+
+.mainCounter {
+  position: absolute;
+  top: 50px;
+  right: 7.5%;
+  width: 10%;
+  border: 2px solid $accent-yellow;
+  border-radius: $border-radius;
+
+  p {
+    @include fontSize(20);
+    padding: 10px;
   }
+}
 
-  .main,
-  .userAnswer {
-    position: relative;
-  }
+.mainQuiz {
+  padding: 50px 0;
 
-  .mainCounter,
-  .userAnswer {
+  h2 {
     text-align: center;
   }
+}
 
-  .userAnswer,
-  .userCommand,
-  .col.col40 {
-    width: 100%;
-  }
+.userAnswer {
+  padding: 30px;
+  border: 1px solid $accent-yellow;
+  border-radius: $border-radius;
+  margin: 60px 0;
+  box-shadow: 0px 0px 10px $accent-yellow;
 
-  .mainCounter {
+  &::after {
+    content: "+";
     position: absolute;
-    top: 50px;
-    right: 7.5%;
-    width: 10%;
-    border: 2px solid $accent-yellow;
-    border-radius: $border-radius;
-
-    p {
-      @include fontSize(20);
-      padding: 10px;
-    }
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include fontSize(30);
   }
 
-  .mainQuiz {
-    padding: 50px 0;
-
-    h2 {
-      text-align: center;
-    }
-  }
-
-  .userAnswer {
-    padding: 30px;
-    border: 1px solid $accent-yellow;
-    border-radius: $border-radius;
-    margin: 60px 0;
-    box-shadow: 0px 0px 10px $accent-yellow;
-
-    &::after {
-      content: "+";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      @include fontSize(30);
-    }
-
-    .userInput {
-      display: inline-block;
-      font-weight: 600;
-    }
+  .userInput {
+    display: inline-block;
+    font-weight: 600;
   }
 }

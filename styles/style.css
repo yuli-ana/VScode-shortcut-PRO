@@ -403,6 +403,121 @@ p {
           flex: 0 1 auto;
 }
 
+.main {
+  position: relative;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+
+.main .mainRules {
+  position: absolute;
+  width: 50%;
+  top: -100%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  z-index: 10;
+  border: 1px solid #dcab00;
+  border-radius: 5px;
+}
+
+.main .mainRules .closeRules {
+  position: absolute;
+  top: 30px;
+  width: 20%;
+  background: darkslategray;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.main .mainRules .closeRules.button {
+  background-color: darkslategrey;
+}
+
+.main .mainRules .closeRules.button::after {
+  content: "";
+  margin: 0;
+}
+
+.main h2,
+.main .userAnswer {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.main .main,
+.main .userAnswer {
+  position: relative;
+}
+
+.main .mainCounter,
+.main .userAnswer {
+  text-align: center;
+}
+
+.main .userAnswer,
+.main .userCommand,
+.main .col.col40 {
+  width: 100%;
+}
+
+.main .mainCounter {
+  position: absolute;
+  top: 50px;
+  right: 7.5%;
+  width: 10%;
+  border: 2px solid #dcab00;
+  border-radius: 10px;
+}
+
+.main .mainCounter p {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.main .mainQuiz {
+  padding: 50px 0;
+}
+
+.main .mainQuiz h2 {
+  text-align: center;
+}
+
+.main .userAnswer {
+  padding: 30px;
+  border: 1px solid #dcab00;
+  border-radius: 10px;
+  margin: 60px 0;
+  -webkit-box-shadow: 0px 0px 10px #dcab00;
+          box-shadow: 0px 0px 10px #dcab00;
+}
+
+.main .userAnswer::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+
+.main .userAnswer .userInput {
+  display: inline-block;
+  font-weight: 600;
+}
+
 .modalIntro {
   position: fixed;
   top: 0;
@@ -410,6 +525,7 @@ p {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: 100;
 }
 
 .modalIntro .modalLeft,
@@ -493,121 +609,6 @@ p {
   content: "→";
   display: inline-block;
   margin-left: 30px;
-}
-
-.header {
-  position: relative;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  z-index: 2;
-}
-
-.header .headerRules {
-  position: absolute;
-  width: 50%;
-  top: -100%;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
-  z-index: 10;
-  border: 1px solid #dcab00;
-  border-radius: 5px;
-}
-
-.header .headerRules .closeRules {
-  position: absolute;
-  top: 30px;
-  width: 20%;
-  background: darkslategray;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.header .headerRules .closeRules.button {
-  background-color: darkslategrey;
-}
-
-.header .headerRules .closeRules.button::after {
-  content: "";
-  margin: 0;
-}
-
-.header h2,
-.header .userAnswer {
-  font-size: 3rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-}
-
-.header .header,
-.header .userAnswer {
-  position: relative;
-}
-
-.header .headerCounter,
-.header .userAnswer {
-  text-align: center;
-}
-
-.header .userAnswer,
-.header .userCommand,
-.header .col.col40 {
-  width: 100%;
-}
-
-.header .headerCounter {
-  position: absolute;
-  top: 50px;
-  right: 7.5%;
-  width: 10%;
-  border: 2px solid #dcab00;
-  border-radius: 10px;
-}
-
-.header .headerCounter p {
-  font-size: 2rem;
-  padding: 10px;
-}
-
-.header .headerQuiz {
-  padding: 50px 0;
-}
-
-.header .headerQuiz h2 {
-  text-align: center;
-}
-
-.header .userAnswer {
-  padding: 30px;
-  border: 1px solid #dcab00;
-  border-radius: 10px;
-  margin: 60px 0;
-  -webkit-box-shadow: 0px 0px 10px #dcab00;
-          box-shadow: 0px 0px 10px #dcab00;
-}
-
-.header .userAnswer::after {
-  content: "+";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 3rem;
-}
-
-.header .userAnswer .userInput {
-  display: inline-block;
-  font-weight: 600;
 }
 
 .modalScore .modalScoreLeft,

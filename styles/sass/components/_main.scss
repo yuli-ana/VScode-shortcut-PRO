@@ -160,7 +160,7 @@
       .col75 {
         flex-basis: 100%;
         max-width: calc(100% - 40px);
-        width: 100%;
+        width: 100%; // test
       }
     }
 
@@ -168,7 +168,7 @@
       &.col60 {
         flex-basis: 100%;
         max-width: calc(100% - 40px);
-        width: 100%;
+        width: 100%; //test
       }
     }
   }

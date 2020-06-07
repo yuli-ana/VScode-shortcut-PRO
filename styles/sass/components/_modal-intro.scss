@@ -68,10 +68,10 @@
 
   .modalIntroTitle {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%);
-    min-height: 75vh;
+    min-height: 50vh;
     z-index: 100;
     text-align: center;
     width: 60%;
@@ -82,14 +82,11 @@
       margin: 0;
     }
 
-    h1,
-    p {
-      color: #000;
-      text-shadow: 2px 2px 1px #fff;
-    }
-
     h1 {
-      @include fontSize(60);
+      @include fontSize(50);
+      font-family: "Orbitron", sans-serif;
+      color: #193549;
+      text-shadow: 2px 2px 1px bisque;
 
       @include tablet-landscape {
         @include fontSize(50);
@@ -101,9 +98,10 @@
     }
 
     p {
-      @include fontSize(30);
+      @include fontSize(20);
       margin: 30px 0;
       text-shadow: unset;
+      color: #193549;
 
       @include tablet-landscape-sm {
         @include fontSize(25);

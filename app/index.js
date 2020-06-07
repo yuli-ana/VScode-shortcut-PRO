@@ -30,7 +30,7 @@ quizApp.animateModal = function () {
 
 
 
-// SHOW RULES MODAL
+// SHOW MODAL RULES
 quizApp.showRulesModal = function () {
     $('.mainRules').animate({
         top: "20%"
@@ -39,7 +39,7 @@ quizApp.showRulesModal = function () {
     this.hideRulesModal();
 }
 
-// HIDE RULES MODAL
+// HIDE MODAL RULES
 quizApp.hideRulesModal = function () {
     $('.btnCloseRules').on('click', (e) => {
         e.preventDefault();
@@ -60,15 +60,16 @@ quizApp.clearHtml = () => {
 
 }
 
-
 // UPDATE SCORE
 quizApp.updateScoreHtml = function () {
     const scoreList = $(".scoreList");
     const myArr = this.quiz;
 
+    scoreList.empty();
+
     // Update DOM with questions and score
-    myArr.forEach((question) => {
-        const listItem = $("<li>").addClass("auto");
+    myArr.forEach(question => {
+        const listItem = $("<li>").addClass("auto").css({"align-items": "center"});
         const questionHtml = $("<p>").addClass("auto");
         const finalScore = $("<p>").addClass("questionFinalScore auto");
         let defaultAnswer = "correct";
@@ -106,8 +107,9 @@ quizApp.updateInput = function (input) {
     $(".userInput2").text(userArr[i].userKeys[1]);
 }
 
-quizApp.updateCounter = function () {
-    $(".counter").text(`${this.counter < 5 ? this.counter + 1 : this.counter}`);
+//UPDATE COUNTER
+quizApp.updateCounter = function (counter) {
+    $(".counter").text(`${counter < 5 ? counter + 1 : counter}`);
 }
 
 
@@ -124,9 +126,9 @@ quizApp.shuffleArray = function (arr) {
     return arr;
 }
 
-// OPEN MODAL
+// OPEN MODAL SCORE
 quizApp.openModalScore = function () {
-    // Hide modal intro when game is over
+    // Show modal score when game is over
     $(".modalScore").removeClass("close");
 
     // Animate 
@@ -151,29 +153,48 @@ quizApp.openModalScore = function () {
 
 }
 
+// CLOSE MODAL SCORE
+quizApp.closeModalScore = function () {
+    $('.scoreTotal').animate({
+        top: "-100%"
+    }, 200);
+
+    setTimeout(function () {
+        $(".modalScoreLeft").animate({
+            left: "-50%"
+        }, 1000);
+
+        $(".modalScoreRight").animate({
+            right: "-50%"
+        }, 1000);
+    })
+
+    this.updateScoreHtml();
+
+
+    setTimeout(function () {
+        $('.modalScore').addClass('close');
+    }, 2000);
+
+}
+
 
 // INIT
 quizApp.init = function () {
-    // Hide modal intro
+    // Hide modal score
     $('.modalScore').addClass('close');
-    
-    
+
+
     // BUTTON START
     $(".btnStart").on("click", (e) => {
         e.preventDefault();
 
-
-        
+        this.clearHtml();
         this.animateModal();
-        
-        
-        // test^
-        
-        
         this.showRulesModal();
 
-        setTimeout(function(){
-            $('.modalIntro').css({"display": "none"})
+        setTimeout(function () {
+            $('.modalIntro').css({ "display": "none" })
         }, 1000);
     });
 
@@ -201,8 +222,18 @@ quizApp.init = function () {
 
 
     // BUTTON PLAY AGAIN
-    $('.btnPlayAgain').on('click', () => {
+    $('.btnPlayAgain').on('click', (e) => {
+        e.preventDefault();
+
+        this.counter = 0;
+
+        this.clearHtml();
+        this.closeModalScore();
         this.shuffleArray(this.quiz);
+
+        $("h2").text(`${this.quiz[this.counter].question}`);
+
+        this.updateCounter(this.counter);
     })
 
 
@@ -211,19 +242,19 @@ quizApp.init = function () {
     $(".btnNext").on("click", (e) => {
         e.preventDefault();
 
+        console.log(this.counter);
+        console.log(this.quiz.length - 1);
+
         if (this.counter < this.quiz.length - 1) {
             $("h2").text(`${this.quiz[this.counter + 1].question}`);
-            console.log(this.counter);
+            this.counter += 1;
         } else {
             this.openModalScore();
         }
 
-        if ((this.quiz.length - 1) >= this.counter) {
-            this.counter += 1;
-        }
 
         this.clearHtml();
-        this.updateCounter();
+        this.updateCounter(this.counter);
     })
 }
 

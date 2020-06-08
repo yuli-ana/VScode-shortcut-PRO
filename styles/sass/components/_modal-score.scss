@@ -31,7 +31,7 @@
     right: -50%;
   }
 
-  .scoreTotal {
+  .modalScoreTotal {
     position: absolute;
     top: -100%;
     left: 50%;
@@ -81,11 +81,11 @@
         text-align: center;
 
         p {
-          padding: 15px 30px;
+          padding: 15px 25px;
           @include fontSize(16);
 
           @include tablet-portrait {
-            padding: 10px 25px;
+            padding: 10px 20px;
             @include fontSize(14);
           }
 

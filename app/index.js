@@ -11,24 +11,23 @@ quizApp.quiz = [
     { question: "Enter shortcut to quickly open a file/folder ?", answer: ["Cmd", "p"], userKeys: [], }
 ];
 
-
 // ANIMATE MODAL
 quizApp.animateModal = function () {
-    // Remove width from modal left/right to hide it (or animate)
-    $('.modalRight').animate({
+    const modalLeft = $('.modalLeft');
+    const modalRight = $('.modalRight');
+    // Remove width from modal left/right to hide it
+    modalRight.animate({
         width: 0
     });
 
-    $(".modalLeft").animate({
+    modalLeft.animate({
         width: 0
     });
 
-    // Hide introduction text
+    // Hide an introduction text
     $(".modalIntroTitle").hide();
 
 }
-
-
 
 // SHOW MODAL RULES
 quizApp.showRulesModal = function () {
@@ -88,8 +87,7 @@ quizApp.updateScoreHtml = function () {
     })
 }
 
-
-// UPDATE INPUT
+// UPDATE AN INPUT
 quizApp.updateInput = function (input) {
     const userArr = this.quiz;
     const i = this.counter;
@@ -112,8 +110,7 @@ quizApp.updateCounter = function (counter) {
     $(".counter").text(`${counter < 5 ? counter + 1 : counter}`);
 }
 
-
-//SHUFFLE ARRAY
+//SHUFFLE AN ARRAY
 quizApp.shuffleArray = function (arr) {
     let newArr, temp;
     for (let i = arr.length - 1; i > 0; i--) {
@@ -146,7 +143,7 @@ quizApp.openModalScore = function () {
 
     // Wait for animation to be finished then display score window
     setTimeout(function () {
-        $('.scoreTotal').animate({
+        $('.modalScoreTotal').animate({
             top: "10%"
         });
     }, 2000)
@@ -155,7 +152,7 @@ quizApp.openModalScore = function () {
 
 // CLOSE MODAL SCORE
 quizApp.closeModalScore = function () {
-    $('.scoreTotal').animate({
+    $('.modalScoreTotal').animate({
         top: "-100%"
     }, 200);
 
@@ -171,19 +168,15 @@ quizApp.closeModalScore = function () {
 
     this.updateScoreHtml();
 
-
     setTimeout(function () {
         $('.modalScore').addClass('close');
     }, 2000);
-
 }
 
-
-// INIT
+// START APP
 quizApp.init = function () {
     // Hide modal score
     $('.modalScore').addClass('close');
-
 
     // BUTTON START
     $(".btnStart").on("click", (e) => {
@@ -198,12 +191,11 @@ quizApp.init = function () {
         }, 1000);
     });
 
-
     // KEYDOWN EVENT
     $(document).on("keydown", (e) => {
         let key = e.key;
 
-        // Prevent browser default behavior on keys 
+        // Prevent browser default behavior on specific keys
         if (e.key === "s" || e.key === "o" || e.key === "f" || e.key === "p") {
             e.preventDefault();
         }
@@ -220,7 +212,6 @@ quizApp.init = function () {
         this.updateInput(key);
     });
 
-
     // BUTTON PLAY AGAIN
     $('.btnPlayAgain').on('click', (e) => {
         e.preventDefault();
@@ -236,8 +227,6 @@ quizApp.init = function () {
         this.updateCounter(this.counter);
     })
 
-
-
     // BUTTON NEXT
     $(".btnNext").on("click", (e) => {
         e.preventDefault();
@@ -252,13 +241,10 @@ quizApp.init = function () {
             this.openModalScore();
         }
 
-
         this.clearHtml();
         this.updateCounter(this.counter);
     })
 }
-
-
 
 $(function () {
     quizApp.init();

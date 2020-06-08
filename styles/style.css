@@ -462,7 +462,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1295px) {
   .main .mainRules {
     width: 60%;
   }
@@ -727,15 +727,27 @@ p {
   text-shadow: 2px 2px 1px bisque;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1295px) {
   .modalIntro .modalIntroTitle h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 1100px) {
   .modalIntro .modalIntroTitle h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modalIntro .modalIntroTitle h1 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .modalIntro .modalIntroTitle h1 span {
+    display: block;
   }
 }
 
@@ -753,8 +765,15 @@ p {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .modalIntro .modalIntroTitle p {
+    font-size: 1.8rem;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .modalIntro .modalIntroTitle p {
+    font-size: 1.6rem;
     margin: 30px 0 50px;
   }
 }
@@ -764,10 +783,16 @@ p {
   margin: 0;
 }
 
+@media only screen and (max-width: 480px) {
+  .modalIntro .modalIntroTitle .btnStart {
+    width: 130px;
+  }
+}
+
 @media only screen and (max-width: 1100px) {
   .modalIntro .modalIntroTitle {
     position: relative;
-    min-height: 65vh;
+    min-height: 49vh;
     width: 100%;
   }
 }

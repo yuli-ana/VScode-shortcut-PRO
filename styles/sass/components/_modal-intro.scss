@@ -88,12 +88,22 @@
       color: #193549;
       text-shadow: 2px 2px 1px bisque;
 
-      @include tablet-landscape {
-        @include fontSize(50);
+      @include tablet-landscape-lg {
+        @include fontSize(40);
       }
 
-      @include tablet-landscape-sm {
-        @include fontSize(40);
+      @include tablet-landscape {
+        @include fontSize(35);
+      }
+
+      @include tablet-portrait {
+        @include fontSize(20);
+      }
+
+      @include phone {
+        & span {
+          display: block;
+        }
       }
     }
 
@@ -108,7 +118,12 @@
         margin: 30px 0 70px;
       }
 
+      @include tablet-portrait {
+        @include fontSize(18);
+      }
+
       @include phone {
+        @include fontSize(16);
         margin: 30px 0 50px;
       }
     }
@@ -118,11 +133,15 @@
         content: "";
         margin: 0;
       }
+
+      @include phone {
+        width: 130px;
+      }
     }
 
     @include tablet-landscape {
       position: relative;
-      min-height: 65vh;
+      min-height: 49vh;
       width: 100%;
     }
 

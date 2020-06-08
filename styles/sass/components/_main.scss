@@ -30,12 +30,6 @@
         margin: 0;
       }
 
-      @include tablet-landscape {
-      }
-
-      @include tablet-landscape-sm {
-      }
-
       @include tablet-portrait {
         top: 15px;
         width: 30%;
@@ -161,7 +155,6 @@
       .col75 {
         flex-basis: 100%;
         max-width: calc(100% - 40px);
-        width: 100%; // test
       }
     }
 
@@ -169,7 +162,6 @@
       &.col60 {
         flex-basis: 100%;
         max-width: calc(100% - 40px);
-        width: 100%; //test
       }
     }
   }

@@ -49,6 +49,7 @@
       margin: 20px 0;
 
       @include tablet-portrait {
+        @include fontSize(25);
         margin: 0;
       }
     }

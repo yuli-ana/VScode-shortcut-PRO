@@ -124,7 +124,7 @@
 
       @include phone {
         @include fontSize(16);
-        margin: 30px 0 50px;
+        margin: 30px 10px;
       }
     }
 
@@ -147,7 +147,12 @@
 
     @include tablet-portrait {
       min-height: unset;
-      padding-top: 100px;
+      margin-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 50px;
+
     }
   }
 

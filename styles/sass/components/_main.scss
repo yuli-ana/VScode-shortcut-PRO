@@ -33,8 +33,11 @@
       @include tablet-portrait {
         top: 15px;
         width: 30%;
+        padding: 12px;
+      }
+
+      @include phone {
         padding: 5px;
-        @include fontSize(16);
       }
     }
 

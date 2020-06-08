@@ -26,7 +26,7 @@
   }
 
   @include phone {
-    @include fontSize(16);
+    @include fontSize(14);
     width: 200px;
   }
 }

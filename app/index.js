@@ -68,7 +68,7 @@ quizApp.updateScoreHtml = function () {
 
     // Update DOM with questions and score
     myArr.forEach(question => {
-        const listItem = $("<li>").addClass("auto").css({"align-items": "center"});
+        const listItem = $("<li>").addClass("auto").css({ "align-items": "center" });
         const questionHtml = $("<p>").addClass("auto");
         const finalScore = $("<p>").addClass("questionFinalScore auto");
         let defaultAnswer = "correct";
@@ -106,12 +106,19 @@ quizApp.updateInput = function (input) {
 }
 
 //UPDATE COUNTER
-quizApp.updateCounter = function (counter) {
+quizApp.updateCounter = function () {
+    let counter = this.counter;
     $(".counter").text(`${counter < 5 ? counter + 1 : counter}`);
 }
 
 //SHUFFLE AN ARRAY
-quizApp.shuffleArray = function (arr) {
+quizApp.shuffleArray = function () {
+
+    // Assign an empty array to update userKeys for each game
+    const arr = this.quiz.forEach(item => {
+        item.userKeys = [];
+    });
+
     let newArr, temp;
     for (let i = arr.length - 1; i > 0; i--) {
         newArr = Math.floor(Math.random() * (i + 1));
@@ -119,8 +126,6 @@ quizApp.shuffleArray = function (arr) {
         arr[i] = arr[newArr];
         arr[newArr] = temp;
     }
-
-    return arr;
 }
 
 // OPEN MODAL SCORE
@@ -217,22 +222,19 @@ quizApp.init = function () {
         e.preventDefault();
 
         this.counter = 0;
+        this.updateCounter();
 
         this.clearHtml();
         this.closeModalScore();
-        this.shuffleArray(this.quiz);
+        this.shuffleArray();
 
         $("h2").text(`${this.quiz[this.counter].question}`);
 
-        this.updateCounter(this.counter);
     })
 
     // BUTTON NEXT
     $(".btnNext").on("click", (e) => {
         e.preventDefault();
-
-        console.log(this.counter);
-        console.log(this.quiz.length - 1);
 
         if (this.counter < this.quiz.length - 1) {
             $("h2").text(`${this.quiz[this.counter + 1].question}`);
@@ -242,7 +244,7 @@ quizApp.init = function () {
         }
 
         this.clearHtml();
-        this.updateCounter(this.counter);
+        this.updateCounter();
     })
 }
 

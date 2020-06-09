@@ -13,8 +13,8 @@ quizApp.quiz = [
 
 // ANIMATE MODAL
 quizApp.animateModal = function () {
-    const modalLeft = $('.modalLeft');
-    const modalRight = $('.modalRight');
+    const modalLeft = $(".modalLeft");
+    const modalRight = $(".modalRight");
     // Remove width from modal left/right to hide it
     modalRight.animate({
         width: 0
@@ -31,7 +31,7 @@ quizApp.animateModal = function () {
 
 // SHOW MODAL RULES
 quizApp.showRulesModal = function () {
-    $('.mainRules').animate({
+    $(".mainRules").animate({
         top: "20%"
     }, 1000);
 
@@ -40,13 +40,13 @@ quizApp.showRulesModal = function () {
 
 // HIDE MODAL RULES
 quizApp.hideRulesModal = function () {
-    $('.btnCloseRules').on('click', (e) => {
+    $(".btnCloseRules").on("click", (e) => {
         e.preventDefault();
 
         // On click ("buttonStart") render 1 question
         $("h2").text(`${this.quiz[this.counter].question}`);
 
-        $('.mainRules').animate({
+        $(".mainRules").animate({
             top: "-80%"
         }, 1000);
     })
@@ -148,7 +148,7 @@ quizApp.openModalScore = function () {
 
     // Wait for animation to be finished then display score window
     setTimeout(function () {
-        $('.modalScoreTotal').animate({
+        $(".modalScoreTotal").animate({
             top: "10%"
         });
     }, 2000)
@@ -157,7 +157,7 @@ quizApp.openModalScore = function () {
 
 // CLOSE MODAL SCORE
 quizApp.closeModalScore = function () {
-    $('.modalScoreTotal').animate({
+    $(".modalScoreTotal").animate({
         top: "-100%"
     }, 200);
 
@@ -174,14 +174,14 @@ quizApp.closeModalScore = function () {
     this.updateScoreHtml();
 
     setTimeout(function () {
-        $('.modalScore').addClass('close');
+        $(".modalScore").addClass("close");
     }, 2000);
 }
 
 // START APP
 quizApp.init = function () {
     // Hide modal score
-    $('.modalScore').addClass('close');
+    $(".modalScore").addClass("close");
 
     // BUTTON START
     $(".btnStart").on("click", (e) => {
@@ -192,7 +192,7 @@ quizApp.init = function () {
         this.showRulesModal();
 
         setTimeout(function () {
-            $('.modalIntro').css({ "display": "none" })
+            $(".modalIntro").css({ "display": "none" })
         }, 1000);
     });
 
@@ -218,7 +218,7 @@ quizApp.init = function () {
     });
 
     // BUTTON PLAY AGAIN
-    $('.btnPlayAgain').on('click', (e) => {
+    $(".btnPlayAgain").on("click", (e) => {
         e.preventDefault();
 
         this.counter = 0;

@@ -1,10 +1,11 @@
-Project 3 (solo interactive jQuery site)
-"Vscode shortcut PRO"
+# Project 3 (solo interactive jQuery site)
 
-Live site: https://yuli-ana.github.io/yulianaHazdaProjectThree/
+"Vscode shortcut PRO" it's an interactive game that helps users to learn shortcut commands in Vscode editor.
+
+**Live site:** https://yuli-ana.github.io/yulianaHazdaProjectThree/
 
 
-Project Requirements
+## Project Requirements
 
 - It is clear to the user what the app does and results are displayed legibly
 - Adds to the DOM dynamically using JavaScript
@@ -17,7 +18,7 @@ Project Requirements
 - Errors are handled effectively
 - Consistent class naming convention is used throughout
 
-Best Practices Requirements
+## Best Practices Requirements
 
 - Extraneous code is removed (including console.log)
 - Semantic HTML elements are used properly

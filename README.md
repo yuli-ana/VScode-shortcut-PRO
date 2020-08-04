@@ -1,4 +1,4 @@
-# Project 3 (solo interactive jQuery site)  https://yuli-ana.github.io/yulianaHazdaProjectThree/
+#  Project 3 (solo interactive jQuery site)
 
 "Vscode shortcut PRO" it's an interactive game that helps users to learn shortcut commands in Vscode editor.
 

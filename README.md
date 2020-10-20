@@ -1,5 +1,6 @@
-#  [Solo interactive jQuery site](https://yuli-ana.github.io/VScode-shortcut-PRO/)
+#  [VScode Shortcut PRO](https://yuli-ana.github.io/VScode-shortcut-PRO/)
 
+## Solo interactive jQuery site
 *Vscode shortcut PRO it's an interactive game that helps users to learn shortcut commands in Vscode editor.*
 
 ## Demo

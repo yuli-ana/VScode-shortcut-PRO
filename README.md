@@ -1,9 +1,10 @@
-#  Project 3 (solo interactive jQuery site)
+#  [Solo interactive jQuery site](https://yuli-ana.github.io/VScode-shortcut-PRO/)
 
-"Vscode shortcut PRO" it's an interactive game that helps users to learn shortcut commands in Vscode editor.
+*Vscode shortcut PRO it's an interactive game that helps users to learn shortcut commands in Vscode editor.*
 
-**Live site:** https://yuli-ana.github.io/yulianaHazdaProjectThree/
+## Demo
 
+![Ineractive learning app](assets/../images/vs-code.gif)
 
 ## Project Requirements
 
